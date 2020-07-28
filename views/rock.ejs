@@ -1,0 +1,247 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/css/stone.css">  
+    </head>
+    <body> 
+        <%var array=[]; %>
+        <% var Rarray=[[0,0,0,0],
+                       [0,0,0,0],
+                       [0,0,0,0],
+                       [0,0,0,0]] %>
+        <%for(var k=1;k<=50;k++){%>
+            Game No. <%= k%>
+        <table >
+            <tr>
+                <td> Player 1 </td>
+                <td> Player 2 </td>
+                <td> Player 3 </td>
+                <td> Player 4 </td>
+            </tr>  
+            <tr>
+            <%for(var i=0;i<4;i++){ var value;  var random= Math.floor(Math.random() * (+4 - +1)) + +1; %>
+               <% if(random==1){
+                    value="Rock";
+                }  %>
+                <%if(random==2){
+                    value="Paper";
+                }  %>
+               <%if(random==3){
+                   value="Scissor";}
+                %>
+                <%array[i]=value%>
+                <td><%= value%></td>
+             <%}%> 
+             </tr>
+           </table> 
+           <br><br>
+           <table>
+            <% var a;%> 
+               <tr>
+                   <td>Totals</td>
+                   <td></td>
+                   <td colspan="4">Against</td>
+               </tr>
+               <tr>
+                   <td></td><td></td>
+                <td> Player 1 </td>
+                <td> Player 2 </td>
+                <td> Player 3 </td>
+                <td> Player 4 </td>
+               </tr>
+               <tr>
+                   <td rowspan="4">Player Wins</td>
+                   <td>Player 1</td>
+                   <td>-</td>
+                   <td>
+                       <% if(array[0]==array[1]){
+                           a=0;
+                       }else{ 
+                       if(array[0]=="Rock"){
+                            if(array[1]=="Scissor") 
+                                a=1;
+                            else
+                                a=0; 
+                         } 
+
+                         if(array[0]=="Scissor"){
+                            if(array[1]=="Paper") 
+                                a=1;
+                            else
+                                a=0; 
+                         } 
+                          if(array[0]=="Paper"){
+                            if(array[1]=="Rock") 
+                                a=1;
+                            else
+                                a=0; }    
+                         }%>
+                       <% Rarray[0][1]+=a%>  
+                       <%= Rarray[0][1] %>
+                    </td>
+                   <td>
+                    <% if(array[0]==array[2]){
+                        a=0;
+                    }else{ 
+                    if(array[0]=="Rock"){
+                         if(array[2]=="Scissor") 
+                             a=1;
+                         else
+                             a=0; 
+                      } 
+
+                      if(array[0]=="Scissor"){
+                         if(array[2]=="Paper") 
+                             a=1;
+                         else
+                             a=0; 
+                      } 
+                       if(array[0]=="Paper"){
+                         if(array[2]=="Rock") 
+                             a=1;
+                         else
+                             a=0; }    
+                      }%>
+                      <% Rarray[0][2]+=a%>  
+                      <%= Rarray[0][2] %>
+                   </td>
+                   <td>
+                    <% if(array[0]==array[3]){
+                        a=0;
+                    }else{ 
+                    if(array[0]=="Rock"){
+                         if(array[3]=="Scissor") 
+                             a=1;
+                         else
+                             a=0; 
+                      } 
+
+                      if(array[0]=="Scissor"){
+                         if(array[3]=="Paper") 
+                             a=1;
+                         else
+                             a=0; 
+                      } 
+                       if(array[0]=="Paper"){
+                         if(array[3]=="Rock") 
+                             a=1;
+                         else
+                             a=0; }    
+                      }%>
+                      <% Rarray[0][3]+=a%>  
+                      <%= Rarray[0][3] %>
+                   </td>
+               </tr>
+               <tr>
+                <td>Player 2</td> 
+                <td> 
+                      <%= Rarray[0][1] %>
+                 </td> 
+                 <td>-</td>
+                <td>
+                 <% if(array[1]==array[2]){
+                     a=0;
+                 }else{ 
+                 if(array[1]=="Rock"){
+                      if(array[2]=="Scissor") 
+                          a=1;
+                      else
+                          a=0; 
+                   } 
+
+                   if(array[1]=="Scissor"){
+                      if(array[2]=="Paper") 
+                          a=1;
+                      else
+                          a=0; 
+                   } 
+                    if(array[1]=="Paper"){
+                      if(array[2]=="Rock") 
+                          a=1;
+                      else
+                          a=0; }    
+                   }%>
+                   <% Rarray[1][2]+=a%>  
+                   <%= Rarray[1][2] %>
+                </td>
+                <td>
+                 <% if(array[1]==array[3]){
+                     a=0;
+                 }else{ 
+                 if(array[1]=="Rock"){
+                      if(array[3]=="Scissor") 
+                          a=1;
+                      else
+                          a=0; 
+                   } 
+
+                   if(array[1]=="Scissor"){
+                      if(array[3]=="Paper") 
+                          a=1;
+                      else
+                          a=0; 
+                   } 
+                    if(array[1]=="Paper"){
+                      if(array[3]=="Rock") 
+                          a=1;
+                      else
+                          a=0; }    
+                   }%>
+                   <% Rarray[1][3]+=a%>  
+                   <%= Rarray[1][3] %>
+                </td>
+               </tr>
+               <tr>
+                <td>Player 3</td> 
+                <td> 
+                      <%= Rarray[0][2] %>
+                 </td>
+                <td> 
+                   <%= Rarray[1][2] %>
+                </td>
+                <td>-</td>
+                <td>
+                 <% if(array[2]==array[3]){
+                     a=0;
+                 }else{ 
+                 if(array[2]=="Rock"){
+                      if(array[3]=="Scissor") 
+                          a=1;
+                      else
+                          a=0; 
+                   } 
+
+                   if(array[2]=="Scissor"){
+                      if(array[3]=="Paper") 
+                          a=1;
+                      else
+                          a=0; 
+                   } 
+                    if(array[2]=="Paper"){
+                      if(array[3]=="Rock") 
+                          a=1;
+                      else
+                          a=0; }    
+                   }%>
+                   <% Rarray[2][3]+=a%>  
+                   <%= Rarray[2][3] %>
+                </td>
+               </tr>
+               <tr>
+                <td>Player 4</td>
+                <td> 
+                      <%= Rarray[0][3] %>
+                 </td>
+                 <td> 
+                      <%= Rarray[1][3] %>
+                 </td>  
+                <td> 
+                   <%= Rarray[2][3] %>
+                </td>
+                <td> - </td>
+               </tr>
+           </table>
+           <br><br>
+           <%}%>
+    </body>
+</html>
